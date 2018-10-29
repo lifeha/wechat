@@ -9,7 +9,7 @@
  * with this source code in the file LICENSE.
  */
 
-namespace EasyWeChat\MiniProgram\Store;
+namespace EasyWeChat\OfficialAccount\Store;
 
 use EasyWeChat\Kernel\BaseClient;
 
@@ -154,7 +154,7 @@ class Client extends BaseClient
     public function list(int $offset = 0, int $limit = 10)
     {
         $params = [
-            'begin' => $offset,
+            'offset' => $offset,
             'limit' => $limit,
         ];
 
