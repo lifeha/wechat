@@ -9,14 +9,25 @@
  * with this source code in the file LICENSE.
  */
 
-namespace EasyWeChat\OpenPlatform\Authorizer\Aggregate;
+namespace EasyWeChat\MiniProgram\Base;
 
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
 
-class AggregateServiceProvider implements ServiceProviderInterface
+/**
+ * Class ServiceProvider.
+ *
+ * @author mingyoung <mingyoungcheung@gmail.com>
+ */
+class ServiceProvider implements ServiceProviderInterface
 {
+    /**
+     * {@inheritdoc}.
+     */
     public function register(Container $app)
     {
+        $app['base'] = function ($app) {
+            return new Client($app);
+        };
     }
 }

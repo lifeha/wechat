@@ -9,14 +9,17 @@
  * with this source code in the file LICENSE.
  */
 
-namespace EasyWeChat\OpenPlatform\Authorizer\Aggregate;
+namespace EasyWeChat\OpenPlatform\Component;
 
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
 
-class AggregateServiceProvider implements ServiceProviderInterface
+class ServiceProvider implements ServiceProviderInterface
 {
     public function register(Container $app)
     {
+        $app['component'] = function ($app) {
+            return new Client($app);
+        };
     }
 }
